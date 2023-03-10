@@ -1,6 +1,24 @@
 const NavBar = () => {
     return (
-        <p>This is NavBar</p>
+        <nav>
+            <ul>
+                <li>
+                    Home
+                </li>
+                <li>
+                    My Medications
+                </li>
+                <li>
+                    Add a Medication
+                </li>
+                <li>
+                    About
+                </li>
+                <li>
+                    My Profile
+                </li>
+            </ul>
+        </nav>
     )
 }
 
