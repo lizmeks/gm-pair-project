@@ -1,24 +1,25 @@
+import { NavBarOption, NavBarOptionRight, Navigation } from "./NavBar.styles"
+
+
 const NavBar = () => {
     return (
-        <nav>
-            <ul>
-                <li>
-                    Home
-                </li>
-                <li>
+        <Navigation>
+            <NavBarOption to='/'>
+                Home
+            </NavBarOption>
+            <NavBarOption to='/'>
                     My Medications
-                </li>
-                <li>
-                    Add a Medication
-                </li>
-                <li>
-                    About
-                </li>
-                <li>
-                    My Profile
-                </li>
-            </ul>
-        </nav>
+            </NavBarOption>
+            <NavBarOption to='/'>
+                Add a Medication
+            </NavBarOption>
+            <NavBarOption to='/'>
+                About
+            </NavBarOption>
+            <NavBarOptionRight to='/'>
+                My Profile
+            </NavBarOptionRight>
+        </Navigation>
     )
 }
 
