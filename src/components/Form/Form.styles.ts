@@ -37,10 +37,6 @@ export const SelectInput = styled.select`
   margin-top: .25rem;
 `
 
-export const SubmitButton = styled.button`
-  
-`
-
 export const TimesContainer = styled.div`
   margin-top: 0.5rem;
 `
@@ -50,4 +46,9 @@ export const RemoveTimeButton = styled.button`
 
 export const AddTimeButton = styled.button`
   margin-top: 1rem;
+`
+
+export const ErrorMessage = styled.p`
+  color: red;
+  font-weight: normal !important;
 `

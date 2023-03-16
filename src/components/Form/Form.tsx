@@ -1,4 +1,6 @@
 import { FieldArray, Formik, Field } from 'formik';
+import { preProcessFile } from 'typescript';
+import * as Yup from 'yup';
 import {
   Root,
   Title,
@@ -7,11 +9,23 @@ import {
   TextFieldInput,
   LargeTextFieldInput,
   SelectInput,
-  SubmitButton,
   TimesContainer,
   RemoveTimeButton,
-  AddTimeButton
+  AddTimeButton,
+  ErrorMessage
 } from './Form.styles'
+
+const validationSchema = Yup.object({
+  name: Yup.string().required().min(3),
+  description: Yup.string(),
+  image: Yup.string(),
+  times: Yup.array().of(
+    Yup.string()
+  ).min(1).required(),
+  notification: Yup.string().required().oneOf(
+    ['email', 'phone', 'text']
+  )
+})
 
 const Form = () => {
 
@@ -23,11 +37,13 @@ const Form = () => {
           name: '',
           description: '',
           image: '',
-          times: ['12:00']
+          times: ['12:00'],
+          notification: ''
         }}
         onSubmit={(values, actions) => {
           alert(JSON.stringify(values, null, 2));
         }}
+        validationSchema={validationSchema}
       >
         { props => (
           <AddForm onSubmit={props.handleSubmit}>
@@ -36,11 +52,14 @@ const Form = () => {
               <TextFieldInput
                 type="text"
                 id="name"
-                placeholder='Enter medication name'
+                placeholder='Enter medication name or nickname'
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
                 value={props.values.name}
               />
+              {props.touched.name && props.errors.name && (
+                <ErrorMessage>{props.errors.name}</ErrorMessage>
+              )}
             </InputLabel>
             <InputLabel htmlFor="description">
               Description
@@ -51,6 +70,9 @@ const Form = () => {
                 onBlur={props.handleBlur}
                 value={props.values.description}
               />
+              {props.touched.description && props.errors.description && (
+                <ErrorMessage>{props.errors.description}</ErrorMessage>
+              )}
             </InputLabel>
             <InputLabel htmlFor='image'>
               Upload medication image (optional)
@@ -62,6 +84,9 @@ const Form = () => {
                 onBlur={props.handleBlur}
                 value={props.values.image}
               />
+              {props.touched.image && props.errors.image && (
+                <ErrorMessage>{props.errors.image}</ErrorMessage>
+              )}
             </InputLabel>
             <FieldArray
               name='times'
@@ -82,6 +107,9 @@ const Form = () => {
                       </RemoveTimeButton>
                     </TimesContainer>
                   ))}
+                  {props.touched.times && props.errors.times && (
+                    <ErrorMessage>{props.errors.times}</ErrorMessage>
+                  )}
                   <AddTimeButton
                     type='button'
                     onClick={() => arrayHelpers.push('12:00')}
@@ -93,14 +121,22 @@ const Form = () => {
             />
             <InputLabel htmlFor="notification">
               Notification Preference
-              <SelectInput id="notification">
+              <SelectInput 
+                id="notification"
+                onChange={props.handleChange}
+                onBlur={props.handleBlur}
+                value={props.values.notification}
+              >
                 <option value=''>-Please select an option-</option>
                 <option value='email'>Email</option>
                 <option value='text'>Text message</option>
                 <option value='phone'>Phone call</option>
               </SelectInput>
+              {props.touched.notification && props.errors.notification && (
+                <ErrorMessage>{props.errors.notification}</ErrorMessage>
+              )}
             </InputLabel>
-            <SubmitButton type='submit'>Submit</SubmitButton>
+            <button type='submit'>Submit</button>
           </AddForm>
         )}
       </Formik>
