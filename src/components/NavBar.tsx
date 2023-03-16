@@ -11,7 +11,7 @@ const NavBar = () => {
                 <NavBarOption to='/'>
                         My Medications
                 </NavBarOption>
-                <NavBarOption to='/'>
+                <NavBarOption to='/add'>
                     Add a Medication
                 </NavBarOption>
                 <NavBarOption to='/'>
