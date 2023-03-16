@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import MedicationTile from "./MedicationTile"
 
-interface Medication {
+export interface Medication {
     id: number,
     name: string,
     description: string,
@@ -12,20 +13,25 @@ interface Medication {
 
 const MyMedications = () => {
 
-    const [medications, setMedications] = useState([])
+    const [medications, setMedications] = useState<Medication[]>([])
 
     useEffect(() => {
-        const fetchMedications = async () => {
-            let data = await fetch('http://localhost:3000/medications')
-            data = await data.json()
-            return data
-            // setMedications(data.json())
+        const fetchMedications = () => {
+            let medData = (fetch('http://localhost:3000/medications'))
+                .then(res => res.json())
+                .then(data => setMedications(data))
+            return medData
         }
-        // setMedications(fetchMedications())
+        fetchMedications()
     }, [])
 
+    const medicationsToDisplay = medications.map(med => <MedicationTile med={med} key={med.id} />)
+
     return (
-        <p>My Medications page</p>
+        <>
+            <p>My Medications page</p>
+            {medicationsToDisplay}
+        </>
     )
 }
 
