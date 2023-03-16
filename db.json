@@ -1,0 +1,68 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Lizard",
+            "email": "lizard@gmail.com",
+            "phone_number": 8458888888,
+            "password": "Medz1"
+        },
+        {
+            "id": 2,
+            "name": "Wenzo",
+            "email": "wenzo@gmail.com",
+            "phone_number": 9175611234,
+            "password": "Medz2"
+        }
+    ],
+    "medications": [
+        {
+            "id": 1,
+            "name": "Ibuprofen",
+            "description": "Small red tab",
+            "image": "https://media.wired.com/photos/5e7cde9c845a6c00080f0e96/16:9/w_2288,h_1287,c_limit/Science_KXWEB4.jpg",
+            "times": [
+                "12:00",
+                "18:00"
+            ],
+            "preferred_notifications_method": "Phone",
+            "user_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Omeprazole",
+            "description": "Big pink pill with OME 10 printed on it",
+            "image": "https://cdn.shopify.com/s/files/1/0996/0350/products/02296438-removebg-preview.png?v=1638308252",
+            "times": [
+                "8:00",
+                "12:00",
+                "18:00"
+            ],
+            "preferred_notifications_method": "Phone",
+            "user_id": 2
+        },
+        {
+            "id": 3,
+            "name": "Vitamin D",
+            "description": "Large oval, clear gel-like capsule",
+            "image": "https://images.ctfassets.net/oc83wx5cwffk/spu_wysiwyg_fid42385_asset/5eb59b1cccde52826d14c9378d23c0c7/vitamin_D_capsules_bottle_80150511_ML_123RF.jpg",
+            "times": [
+                "9:00"
+            ],
+            "preferred_notifications_method": "Email",
+            "user_id": 2
+        },
+        {
+            "id": 4,
+            "name": "Amoxicillin",
+            "description": "Oval pink tablet",
+            "image": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/SKB60460.jpg",
+            "times": [
+                "10:00",
+                "22:00"
+            ],
+            "preferred_notifications_method": "Email",
+            "user_id": 1
+        }
+      ]
+}
