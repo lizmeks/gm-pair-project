@@ -1,11 +1,20 @@
 import { Medication } from "./MyMedications"
-import { MedicationTileContainer, MedicationInfo, MedicationImage } from "./MyMedications.styles"
+import { MedicationTileContainer, MedicationInfo, MedicationImage, DeleteButton } from "./MyMedications.styles"
 
 const MedicationTile = (props: { med: Medication }) => {
 
     const { med } = props
 
     const timesToDisplay = med.times?.map(t => <li key={t}>{t}</li>)
+
+    const handleDelete = () => {
+        if (window.confirm("Are you sure you want to delete?")) {
+            fetch(`http://localhost:3000/medications/${med.id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+        }
+    }
 
     return (
         <MedicationTileContainer>
@@ -16,6 +25,7 @@ const MedicationTile = (props: { med: Medication }) => {
                 <ul>
                     {timesToDisplay}
                 </ul>
+                <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
             </MedicationInfo>
             <MedicationImage src={med.image} alt={med.description} />
         </MedicationTileContainer>
