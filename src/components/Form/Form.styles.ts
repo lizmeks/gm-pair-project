@@ -40,3 +40,14 @@ export const SelectInput = styled.select`
 export const SubmitButton = styled.button`
   
 `
+
+export const TimesContainer = styled.div`
+  margin-top: 0.5rem;
+`
+export const RemoveTimeButton = styled.button`
+  margin-left: .5rem;
+`
+
+export const AddTimeButton = styled.button`
+  margin-top: 1rem;
+`

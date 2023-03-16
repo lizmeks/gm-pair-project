@@ -7,7 +7,10 @@ import {
   TextFieldInput,
   LargeTextFieldInput,
   SelectInput,
-  SubmitButton
+  SubmitButton,
+  TimesContainer,
+  RemoveTimeButton,
+  AddTimeButton
 } from './Form.styles'
 
 const Form = () => {
@@ -66,25 +69,25 @@ const Form = () => {
                 <div>
                   <p>Reminder times</p>
                   {props.values.times.map((_time, index) => (
-                    <div key={index}>
+                    <TimesContainer key={index}>
                       <Field 
                         name={`times.${index}`}
                         type='time'
                       />
-                      <button
+                      <RemoveTimeButton
                         type='button'
                         onClick={() => arrayHelpers.remove(index)}
                       >
                         -
-                      </button>
-                    </div>
+                      </RemoveTimeButton>
+                    </TimesContainer>
                   ))}
-                  <button
+                  <AddTimeButton
                     type='button'
                     onClick={() => arrayHelpers.push('12:00')}
                   >
                     +Add Reminder
-                  </button>
+                  </AddTimeButton>
                 </div>
               )}
             />
