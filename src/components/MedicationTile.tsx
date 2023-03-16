@@ -1,7 +1,7 @@
 import { Medication } from "./MyMedications"
 import { MedicationTileContainer, MedicationInfo, MedicationImage } from "./MyMedications.styles"
 
-const MedicationTile = (props: { med: Medication }) => { // can't destructure props directly in argument?
+const MedicationTile = (props: { med: Medication }) => {
 
     const { med } = props
 
@@ -11,10 +11,8 @@ const MedicationTile = (props: { med: Medication }) => { // can't destructure pr
         <MedicationTileContainer>
             <MedicationInfo>
                 <h3>{med.name}</h3>
-
-                <p>{med.description}</p>
-                <p>Notifications: {med.preferred_notifications_method}</p>
-                <p>Times:</p>
+                <h4>{med.description}</h4>
+                <p>Notifications via {med.preferred_notifications_method === "Email" ? "📧" : "📱"} at:</p>
                 <ul>
                     {timesToDisplay}
                 </ul>
