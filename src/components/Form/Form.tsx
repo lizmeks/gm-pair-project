@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useFormik, FieldArray, Formik } from 'formik';
+import { FieldArray, Formik, Field } from 'formik';
 import {
   Root,
   Title,
@@ -13,29 +12,6 @@ import {
 
 const Form = () => {
 
-  const [timeInputs, setTimeInputs] = useState([
-    {
-      value: '12:00',
-      key: 1
-    }
-  ]);
-
-  const handleTimeInputIncrease = () => {
-    setTimeInputs([
-      ...timeInputs,
-      {
-        value: '12:00',
-        key: timeInputs.length + 1
-      }
-    ]);
-  }
-
-  const handleTimeInputChange = (event: any) => {
-    const inputIndex = event.target.id.replaceAll(/[a-z]/gi, '') - 1;
-    timeInputs[inputIndex].value = event.target.value;
-    setTimeInputs([...timeInputs]);
-  }
-
   return (
     <Root>
       <Title>Add your medication</Title>
@@ -44,6 +20,7 @@ const Form = () => {
           name: '',
           description: '',
           image: '',
+          times: ['12:00']
         }}
         onSubmit={(values, actions) => {
           alert(JSON.stringify(values, null, 2));
@@ -83,26 +60,34 @@ const Form = () => {
                 value={props.values.image}
               />
             </InputLabel>
-            <div>
-              <p>Reminder times</p>
-              {timeInputs.map(element => {
-                return (
-                  <input
-                    key={element.key}
-                    id={`timeInput${element.key}`}
-                    type='time'
-                    value={element.value}
-                    onChange={handleTimeInputChange}
-                  />
-                )
-              })}
-              <button
-                onClick={handleTimeInputIncrease}
-                type='button'
-              >
-                +Add Reminder
-              </button>
-            </div>
+            <FieldArray
+              name='times'
+              render={arrayHelpers => (
+                <div>
+                  <p>Reminder times</p>
+                  {props.values.times.map((_time, index) => (
+                    <div key={index}>
+                      <Field 
+                        name={`times.${index}`}
+                        type='time'
+                      />
+                      <button
+                        type='button'
+                        onClick={() => arrayHelpers.remove(index)}
+                      >
+                        -
+                      </button>
+                    </div>
+                  ))}
+                  <button
+                    type='button'
+                    onClick={() => arrayHelpers.push('12:00')}
+                  >
+                    +Add Reminder
+                  </button>
+                </div>
+              )}
+            />
             <InputLabel htmlFor="notification">
               Notification Preference
               <SelectInput id="notification">
