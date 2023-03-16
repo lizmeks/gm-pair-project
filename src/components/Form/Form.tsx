@@ -12,7 +12,9 @@ import {
   RemoveTimeButton,
   AddTimeButton,
   ErrorMessage
-} from './Form.styles'
+} from './Form.styles';
+import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 
 const validationSchema = Yup.object({
   name: Yup.string().required().min(3),
@@ -24,7 +26,28 @@ const validationSchema = Yup.object({
   notification: Yup.string().required().oneOf(
     ['email', 'phone', 'text']
   )
-})
+});
+
+interface Medication {
+  name: string,
+  description: string,
+  image: string,
+  times: string[],
+  notification: string
+}
+
+const USER_ID = 1;
+
+const medicationSubmitHandler = (data: Medication) => {
+  const newMedication = {
+    ...data,
+    user_id: USER_ID,
+    id: uuidv4()
+  };
+  axios.post('http://localhost:3000/medications', newMedication)
+    .then(res => console.log(res.data))
+    .catch(error => console.error(error.message));
+};
 
 const Form = () => {
 
@@ -39,8 +62,8 @@ const Form = () => {
           times: ['12:00'],
           notification: ''
         }}
-        onSubmit={(values, actions) => {
-          alert(JSON.stringify(values, null, 2));
+        onSubmit={(values) => {
+          medicationSubmitHandler(values);
         }}
         validationSchema={validationSchema}
       >
