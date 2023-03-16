@@ -8,7 +8,7 @@ const NavBar = () => {
                 <NavBarOption to='/'>
                     Home
                 </NavBarOption>
-                <NavBarOption to='/'>
+                <NavBarOption to='/medications'>
                         My Medications
                 </NavBarOption>
                 <NavBarOption to='/add'>

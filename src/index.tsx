@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css';
 import App from './App';
 import Form from "./components/Form/Form";
+import MyMedications from "./components/MyMedications";
 
 const router = createBrowserRouter([{
   path: '/',
@@ -12,6 +13,10 @@ const router = createBrowserRouter([{
     {
       path: 'add',
       element: <Form />
+    },
+    {
+      path: 'medications',
+      element: <MyMedications />
     }
   ]
 }]);
