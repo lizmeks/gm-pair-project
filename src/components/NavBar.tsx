@@ -8,10 +8,10 @@ const NavBar = () => {
                 <NavBarOption to='/'>
                     Home
                 </NavBarOption>
-                <NavBarOption to='/'>
+                <NavBarOption to='/medications'>
                         My Medications
                 </NavBarOption>
-                <NavBarOption to='/'>
+                <NavBarOption to='/add'>
                     Add a Medication
                 </NavBarOption>
                 <NavBarOption to='/'>
