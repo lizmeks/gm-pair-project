@@ -8,7 +8,9 @@ interface User {
     email: string,
     phone_number: number,
     password: string
-}export interface Medication {
+}
+
+export interface Medication {
     id: number,
     name: string,
     description: string,
