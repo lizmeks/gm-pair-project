@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css';
 import App from './App';
-import FormContainer from "./components/FormContainer";
+import Form from "./components/Form/Form";
 import MyMedications from "./components/MyMedications";
 
 const router = createBrowserRouter([{
@@ -12,7 +12,7 @@ const router = createBrowserRouter([{
   children: [
     {
       path: 'add',
-      element: <FormContainer />
+      element: <Form />
     },
     {
       path: 'medications',
