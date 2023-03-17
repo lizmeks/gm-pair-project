@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css';
 import App from './App';
 import Form from "./components/Form/Form";
-import MyMedications from "./components/MyMedications";
+import MyMedications from "./components/Medications/MyMedications";
 
 const router = createBrowserRouter([{
   path: '/',
