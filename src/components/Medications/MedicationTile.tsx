@@ -1,4 +1,5 @@
 import { Medication } from "./MyMedications"
+import pillImage from "../../assets/pill.svg"
 import { MedicationTileContainer, MedicationInfo, MedicationImage, DeleteButton } from "./MyMedications.styles"
 
 const MedicationTile = (props: { med: Medication, onDelete: (med: Medication) => void }) => {
@@ -28,7 +29,7 @@ const MedicationTile = (props: { med: Medication, onDelete: (med: Medication) =>
                 </ul>
                 <DeleteButton onClick={() => handleDelete(med)}>Delete</DeleteButton>
             </MedicationInfo>
-            <MedicationImage src={med.image} alt={med.description} />
+            <MedicationImage src={med.image || pillImage} alt={med.description} />
         </MedicationTileContainer>
     )
 }
