@@ -16,11 +16,9 @@ const NavBar = (props: NavMode) => {
           Home
         </NavBarOption>
         <NavBarOption to='/medications'>
-          My Medications
+          {pov === 'user' ? 'My Medications' : 'Refill Medications'}
         </NavBarOption>
-        <NavBarOption to='/add'>
-          Add a Medication
-        </NavBarOption>
+        {pov === 'user' && <NavBarOption to='/add'>Add a Medication</NavBarOption>}
         <NavBarOption to='/'>
           About
         </NavBarOption>

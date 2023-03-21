@@ -1,4 +1,5 @@
-import { Medication } from "./MyMedications"
+// import { Medication } from "./MyMedications"
+import { Medication } from "../../types"
 import pillImage from "../../assets/pill.svg"
 import { MedicationTileContainer, MedicationInfo, MedicationImage, DeleteButton } from "./MyMedications.styles"
 
