@@ -42,7 +42,6 @@ const RefillRequest = () => {
       let medData = (fetch('http://localhost:3000/medications'))
         .then(res => res.json())
         .then(data => {
-          console.log('RefillReq: ', data)
           return data.filter((med:Medication) => med.refill === true)
         }).then(refillMeds => {
           console.log('refillMeds: ', refillMeds)
@@ -53,9 +52,28 @@ const RefillRequest = () => {
     fetchMedications()
   }, [])
 
-  const handleApprovalDenial = (refill: Medication) => {
+  const handleApprovalDenial = (refill: Medication, decision: boolean) => {
     // console.log((e.target as HTMLElement).textContent)
-    console.log(refill)
+    // console.log(refill)
+    const responseDate = new Date(Date.now())
+
+    fetch(`http://localhost:3000/medications/${refill.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        refill: false,
+        refillStatus: decision,
+        refillResponseDate: responseDate.toLocaleString()
+      })
+    })
+    .then(res => res.json())
+    .then(updatedMed => {
+        console.log('doctor response: ', updatedMed)
+        // onRefillRequest(updatedMed)
+        // setMedications(updatedMed)
+    })
   }
 
   return (
@@ -78,8 +96,8 @@ const RefillRequest = () => {
               </div>
             </TextContainer>
             <ButtonContainer>
-              <button onClick={() => handleApprovalDenial(refill)}>Approve</button>
-              <button>Deny</button>
+              <button onClick={() => handleApprovalDenial(refill, true)}>Approve</button>
+              <button onClick={() => handleApprovalDenial(refill, false)}>Deny</button>
             </ButtonContainer>
           </RefillListItem>
         ))}

@@ -39,8 +39,9 @@
       "preferred_notifications_method": "phone",
       "user_id": 2,
       "refill": false,
-      "status": null,
-      "statusChangedOn": null
+      "refillStatus": null,
+      "refillRequestDate": null,
+      "refillResponseDate": null
     },
     {
       "id": 3,
@@ -52,7 +53,10 @@
       ],
       "preferred_notifications_method": "email",
       "user_id": 2,
-      "refill": false
+      "refill": false,
+      "refillStatus": null,
+      "refillRequestDate": null,
+      "refillResponseDate": null
     },
     {
       "id": 4,
@@ -65,8 +69,10 @@
       ],
       "preferred_notifications_method": "email",
       "user_id": 1,
-      "refill": true,
-      "refillRequestDate": "3/22/2023, 3:37:31 PM"
+      "refill": false,
+      "refillStatus": true,
+      "refillRequestDate": "3/22/2023, 4:58:28 PM",
+      "refillResponseDate": "3/22/2023, 5:16:34 PM"
     },
     {
       "name": "Aspirin",
@@ -80,8 +86,10 @@
       "notification": "email",
       "user_id": 1,
       "id": 5,
-      "refill": true,
-      "refillRequestDate": "3/22/2023, 3:38:39 PM"
+      "refill": false,
+      "refillStatus": true,
+      "refillRequestDate": "3/22/2023, 3:38:39 PM",
+      "refillResponseDate": "3/22/2023, 4:53:48 PM"
     },
     {
       "name": "Loratadine",
@@ -93,7 +101,10 @@
       "notification": "email",
       "user_id": 3,
       "id": 6,
-      "refill": false
+      "refill": false,
+      "refillStatus": null,
+      "refillRequestDate": null,
+      "refillResponseDate": null
     },
     {
       "name": "B-complex",
@@ -106,7 +117,10 @@
       "notification": "phone",
       "user_id": 3,
       "id": 7,
-      "refill": false
+      "refill": false,
+      "refillStatus": null,
+      "refillRequestDate": null,
+      "refillResponseDate": null
     }
   ],
   "doctors": [

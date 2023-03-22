@@ -8,7 +8,8 @@ const MedicationTile = (props: { med: Medication, onDelete: (med: Medication) =>
 
   const handleRefillRequest = (med: Medication) => {
     if (window.confirm("Do you need a refill of this medication?")) {
-        const requestDate = new Date(Date.now());
+      const requestDate = new Date(Date.now())
+  
       fetch(`http://localhost:3000/medications/${med.id}`, {
         method: "PATCH",
         headers: {
@@ -21,7 +22,7 @@ const MedicationTile = (props: { med: Medication, onDelete: (med: Medication) =>
       })
       .then(res => res.json())
       .then(updatedMed => {
-          console.log('updatedMed: ', updatedMed)
+          // console.log('updatedMed: ', updatedMed)
           onRefillRequest(updatedMed)
       })
     }

@@ -5,12 +5,7 @@ const NavBar = (props: NavMode) => {
   const { pov, setPov } = props;
 
   const handleNavToggle = () => {
-    console.log('nav mode: ', pov);
-    if(pov === 'user') {
-      setPov('doctor')
-    } else {
-      setPov('user')
-    }
+    pov === 'user' ? setPov('doctor') : setPov('user')
   }
 
   return (

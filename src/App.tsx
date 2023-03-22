@@ -1,11 +1,33 @@
 import { useState, createContext } from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
-import { NavMode } from "./types";
+import { Medication, NavMode, User } from "./types";
 
 export const NavContext = createContext<NavMode>({
   pov: 'user',
   setPov: () => null,
+});
+
+export const UserContext = createContext<User>({
+  id: 0,
+  name: '',
+  email: '',
+  phone_number: 0,
+  password: ''
+});
+
+export const MedicationContext = createContext<Medication>({
+  id: 0,
+  name: '',
+  description: '',
+  image: '',
+  times: [],
+  preferred_notifications_method: '',
+  user_id: 0,
+  refill: false,
+  refillStatus: null,
+  refillRequestDate: null,
+  refillResponseDate: null
 });
 
 const App = () => {
