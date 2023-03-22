@@ -5,14 +5,24 @@
       "name": "Lizard",
       "email": "lizard@gmail.com",
       "phone_number": 8458888888,
-      "password": "Medz1"
+      "password": "Medz1",
+      "doctor_id": 2
     },
     {
       "id": 2,
       "name": "Wenzo",
       "email": "wenzo@gmail.com",
       "phone_number": 9175611234,
-      "password": "Medz2"
+      "password": "Medz2",
+      "doctor_id": 1
+    },
+    {
+      "id": 3,
+      "name": "Penguin",
+      "email": "penguin@gmail.com",
+      "phone_number": 2122002020,
+      "password": "Medz3",
+      "doctor_id": 3
     }
   ],
   "medications": [
@@ -25,8 +35,9 @@
         "12:00",
         "18:00"
       ],
-      "preferred_notifications_method": "Phone",
-      "user_id": 1
+      "preferred_notifications_method": "phone",
+      "user_id": 1,
+      "refill": true
     },
     {
       "id": 2,
@@ -38,8 +49,9 @@
         "12:00",
         "18:00"
       ],
-      "preferred_notifications_method": "Phone",
-      "user_id": 2
+      "preferred_notifications_method": "phone",
+      "user_id": 2,
+      "refill": false
     },
     {
       "id": 3,
@@ -49,8 +61,9 @@
       "times": [
         "9:00"
       ],
-      "preferred_notifications_method": "Email",
-      "user_id": 2
+      "preferred_notifications_method": "email",
+      "user_id": 2,
+      "refill": true
     },
     {
       "id": 4,
@@ -61,8 +74,68 @@
         "10:00",
         "22:00"
       ],
-      "preferred_notifications_method": "Email",
-      "user_id": 1
+      "preferred_notifications_method": "email",
+      "user_id": 1,
+      "refill": false
+    },
+    {
+      "name": "Aspirin",
+      "description": "Round white tab",
+      "image": "",
+      "times": [
+        "12:00",
+        "04:01",
+        "18:03"
+      ],
+      "notification": "email",
+      "user_id": 1,
+      "id": 5,
+      "refill": true
+    },
+    {
+      "name": "Loratadine",
+      "description": "Small, oval, white tab",
+      "image": "",
+      "times": [
+        "8:00"
+      ],
+      "notification": "email",
+      "user_id": 3,
+      "id": 6,
+      "refill": true
+    },
+    {
+      "name": "B-complex",
+      "description": "Yellowy thick capsule shape but in tab form",
+      "image": "",
+      "times": [
+        "9:00",
+        "21:00"
+      ],
+      "notification": "phone",
+      "user_id": 3,
+      "id": 7,
+      "refill": false
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Calvin Hobbes",
+      "email": "chobbes@gmail.com",
+      "password": "Doc1",
+      "id": 1
+    },
+    {
+      "name": "Candy Korn",
+      "email": "ckorn@gmail.com",
+      "password": "Doc2",
+      "id": 2
+    },
+    {
+      "name": "Pepper Jacques",
+      "email": "pjacques@gmail.com",
+      "password": "Doc3",
+      "id": 3
     }
   ]
 }
