@@ -22,6 +22,7 @@ const NavBar = (props: NavMode) => {
         <NavBarOption to='/'>
           About
         </NavBarOption>
+        {pov === 'user' && <NavBarOption to='/medications'>My Medications</NavBarOption>}
       </LeftRightContainers>
 
       {pov === 'user' && <NavBarOption to='/add' className='addMed'>+ Add Medication</NavBarOption>}
