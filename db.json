@@ -66,7 +66,7 @@
       "preferred_notifications_method": "email",
       "user_id": 1,
       "refill": true,
-      "refillRequestDate": 1679513231838
+      "refillRequestDate": "3/22/2023, 3:37:31 PM"
     },
     {
       "name": "Aspirin",
@@ -81,7 +81,7 @@
       "user_id": 1,
       "id": 5,
       "refill": true,
-      "refillRequestDate": 1679512621447
+      "refillRequestDate": "3/22/2023, 3:38:39 PM"
     },
     {
       "name": "Loratadine",

@@ -69,7 +69,7 @@ const RefillRequest = () => {
               </div>
               <div>
                 <InfoTitle>Date Requested:</InfoTitle>
-                <p>{`${refill.refillRequestDate}, ${refill.refillRequestDate}`}</p>
+                <p>{refill.refillRequestDate}</p>
               </div>
             </TextContainer>
             <ButtonContainer>
