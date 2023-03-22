@@ -53,6 +53,11 @@ const RefillRequest = () => {
     fetchMedications()
   }, [])
 
+  const handleApprovalDenial = (refill: Medication) => {
+    // console.log((e.target as HTMLElement).textContent)
+    console.log(refill)
+  }
+
   return (
     <Root>
       <ul>
@@ -73,7 +78,7 @@ const RefillRequest = () => {
               </div>
             </TextContainer>
             <ButtonContainer>
-              <button>Approve</button>
+              <button onClick={() => handleApprovalDenial(refill)}>Approve</button>
               <button>Deny</button>
             </ButtonContainer>
           </RefillListItem>
