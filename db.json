@@ -65,7 +65,7 @@
       ],
       "preferred_notifications_method": "email",
       "user_id": 1,
-      "refill": false
+      "refill": true
     },
     {
       "name": "Aspirin",
@@ -79,7 +79,8 @@
       "notification": "email",
       "user_id": 1,
       "id": 5,
-      "refill": false
+      "refill": true,
+      "refillRequestDate": 1679512621447
     },
     {
       "name": "Loratadine",

@@ -1,6 +1,6 @@
 import { ButtonContainer, InfoTitle, RefillListItem, Root, TextContainer } from "./RefillRequests.styles";
 import { useEffect, useState } from "react"
-import { Medication } from "../../types"
+import { Medication, User } from "../../types"
 
 const testData = [
   {
@@ -21,38 +21,55 @@ const testData = [
 ]
 
 const RefillRequest = () => {
+  const [user, setUser] = useState<User | null>(null)
   const [medications, setMedications] = useState<Medication[]>([])
 
   useEffect(() => {
-      const fetchMedications = () => {
-          let medData = (fetch('http://localhost:3000/medications'))
-              .then(res => res.json())
-              .then(data => {
-                console.log('RefillReq: ', data)
-                setMedications(data)
-              })
-          return medData
-      }
-      fetchMedications()
+    const fetchUsers = () => {
+      let userData = (fetch('http://localhost:3000/users'))
+        .then(res => res.json())
+        .then(data => {
+          console.log('refill for user: ', data[0])
+          setUser(data[0])
+        })
+      return userData
+    }
+    fetchUsers()
+  }, [])
+
+  useEffect(() => {
+    const fetchMedications = () => {
+      let medData = (fetch('http://localhost:3000/medications'))
+        .then(res => res.json())
+        .then(data => {
+          console.log('RefillReq: ', data)
+          return data.filter((med:Medication) => med.refill === true)
+        }).then(refillMeds => {
+          console.log('refillMeds: ', refillMeds)
+          setMedications(refillMeds)
+        })
+      return medData
+    }
+    fetchMedications()
   }, [])
 
   return (
     <Root>
       <ul>
-        {testData.map((refill, index) => (
+        {medications.map((refill, index) => (
           <RefillListItem key={index}>
             <TextContainer>
               <div>
                 <InfoTitle>Patient Name:</InfoTitle>
-                <p>{refill.patient}</p>
+                <p>{user?.name}</p>
               </div>
               <div>
                 <InfoTitle>Medication:</InfoTitle>
-                <p>{refill.medName}</p>
+                <p>{refill.name}</p>
               </div>
               <div>
                 <InfoTitle>Date Requested:</InfoTitle>
-                <p>{`${refill.date.toDateString()}, ${refill.date.toLocaleTimeString()}`}</p>
+                <p>{`${refill.refillRequestDate}, ${refill.refillRequestDate}`}</p>
               </div>
             </TextContainer>
             <ButtonContainer>
