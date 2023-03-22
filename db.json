@@ -37,7 +37,7 @@
       ],
       "preferred_notifications_method": "phone",
       "user_id": 1,
-      "refill": false
+      "refill": true
     },
     {
       "id": 2,
@@ -63,7 +63,7 @@
       ],
       "preferred_notifications_method": "email",
       "user_id": 2,
-      "refill": true
+      "refill": false
     },
     {
       "id": 4,
@@ -76,7 +76,7 @@
       ],
       "preferred_notifications_method": "email",
       "user_id": 1,
-      "refill": true
+      "refill": false
     },
     {
       "name": "Aspirin",
@@ -90,7 +90,7 @@
       "notification": "email",
       "user_id": 1,
       "id": 5,
-      "refill": true
+      "refill": false
     },
     {
       "name": "Loratadine",
@@ -102,7 +102,7 @@
       "notification": "email",
       "user_id": 3,
       "id": 6,
-      "refill": true
+      "refill": false
     },
     {
       "name": "B-complex",

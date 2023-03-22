@@ -30,8 +30,12 @@ const MyMedications = () => {
     const onRefillRequest = (requestedMed: Medication) => {
         const updatedMeds = medications.map(med => {
             if (med.id === requestedMed.id) {
+                console.log('refill for med id: ', requestedMed.id)
                 return requestedMed
-            } else return med
+            } else {
+                console.log('no refills available')
+                return med
+            }
         })
         setMedications(updatedMeds)
     }

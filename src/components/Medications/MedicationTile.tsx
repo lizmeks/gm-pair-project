@@ -1,12 +1,9 @@
-// import { Medication } from "./MyMedications"
 import { Medication } from "../../types"
 import pillImage from "../../assets/pill.svg"
 import { MedicationTileContainer, MedicationInfo, MedicationImage, DeleteButton, RefillButton } from "./MyMedications.styles"
 
 const MedicationTile = (props: { med: Medication, onDelete: (med: Medication) => void, onRefillRequest: (med: Medication) => void }) => {
-
     const { med, onDelete, onRefillRequest } = props
-
     const timesToDisplay = med.times?.map(t => <li key={t}>{t}</li>)
 
     const handleRefillRequest = (med: Medication) => {
@@ -19,7 +16,10 @@ const MedicationTile = (props: { med: Medication, onDelete: (med: Medication) =>
                 body: JSON.stringify({ refill: true })
             })
                 .then(res => res.json())
-                .then(updatedMed => onRefillRequest(updatedMed))
+                .then(updatedMed => {
+                    console.log('updatedMed: ', updatedMed)
+                    onRefillRequest(updatedMed)
+                })
         }
     }
 

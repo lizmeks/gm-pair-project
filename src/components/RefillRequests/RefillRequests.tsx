@@ -1,4 +1,6 @@
 import { ButtonContainer, InfoTitle, RefillListItem, Root, TextContainer } from "./RefillRequests.styles";
+import { useEffect, useState } from "react"
+import { Medication } from "../../types"
 
 const testData = [
   {
@@ -19,6 +21,20 @@ const testData = [
 ]
 
 const RefillRequest = () => {
+  const [medications, setMedications] = useState<Medication[]>([])
+
+  useEffect(() => {
+      const fetchMedications = () => {
+          let medData = (fetch('http://localhost:3000/medications'))
+              .then(res => res.json())
+              .then(data => {
+                console.log('RefillReq: ', data)
+                setMedications(data)
+              })
+          return medData
+      }
+      fetchMedications()
+  }, [])
 
   return (
     <Root>
