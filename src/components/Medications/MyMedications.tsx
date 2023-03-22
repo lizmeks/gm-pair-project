@@ -3,7 +3,6 @@ import { Medication, User } from "../../types"
 import MedicationTile from "./MedicationTile"
 import { MedicationsContainer } from "./MyMedications.styles"
 
-
 const MyMedications = () => {
     const [user, setUser] = useState<User | null>(null)
     const [medications, setMedications] = useState<Medication[]>([])
@@ -28,6 +27,15 @@ const MyMedications = () => {
         fetchMedications()
     }, [])
 
+    const onRefillRequest = (requestedMed: Medication) => {
+        const updatedMeds = medications.map(med => {
+            if (med.id === requestedMed.id) {
+                return requestedMed
+            } else return med
+        })
+        setMedications(updatedMeds)
+    }
+
     const onDelete = (deletedMed: Medication) => {
         const updatedMeds = medications.filter(med => med.id !== deletedMed.id)
         setMedications(updatedMeds)
@@ -35,7 +43,7 @@ const MyMedications = () => {
 
     const medicationsToDisplay = medications
         .filter(med => med.user_id === user?.id)
-        .map(med => <MedicationTile med={med} key={med.id} onDelete={onDelete} />)
+        .map(med => <MedicationTile med={med} key={med.id} onDelete={onDelete} onRefillRequest={onRefillRequest} />)
 
     return (
         <MedicationsContainer>

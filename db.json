@@ -37,7 +37,7 @@
       ],
       "preferred_notifications_method": "phone",
       "user_id": 1,
-      "refill": true
+      "refill": false
     },
     {
       "id": 2,
@@ -76,7 +76,7 @@
       ],
       "preferred_notifications_method": "email",
       "user_id": 1,
-      "refill": false
+      "refill": true
     },
     {
       "name": "Aspirin",
