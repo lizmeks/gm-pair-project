@@ -6,7 +6,11 @@ const NavBar = (props: NavMode) => {
 
   const handleNavToggle = () => {
     console.log('nav mode: ', pov);
-    pov === 'user' ? setPov('doctor') : setPov('user')
+    if(pov === 'user') {
+      setPov('doctor')
+    } else {
+      setPov('user')
+    }
   }
 
   return (
@@ -15,21 +19,23 @@ const NavBar = (props: NavMode) => {
         <NavBarOption to='/'>
           Home
         </NavBarOption>
-        {
-          pov === 'user' 
-            ? <NavBarOption to='/medications'>My Medications</NavBarOption> 
-            : <NavBarOption to='/requests'>Refill Medications</NavBarOption>
-        }
-        {pov === 'user' && <NavBarOption to='/add'>Add a Medication</NavBarOption>}
         <NavBarOption to='/'>
           About
         </NavBarOption>
       </LeftRightContainers>
+
+      {pov === 'user' && <NavBarOption to='/add' className='addMed'>+ Add Medication</NavBarOption>}
+      
       <LeftRightContainers>
         <NavBarOption to='/'>
           My Profile
         </NavBarOption>
-        <button onClick={handleNavToggle}>{pov} mode</button>
+        <NavBarOption 
+          to={pov === 'user' ? '/requests' : '/medications'}
+          className='navToggle'
+          onClick={handleNavToggle}>
+            {pov} mode
+        </NavBarOption>
       </LeftRightContainers>
     </Navigation>
   )

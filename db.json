@@ -27,19 +27,6 @@
   ],
   "medications": [
     {
-      "id": 1,
-      "name": "Ibuprofen",
-      "description": "Small red tab",
-      "image": "https://media.wired.com/photos/5e7cde9c845a6c00080f0e96/16:9/w_2288,h_1287,c_limit/Science_KXWEB4.jpg",
-      "times": [
-        "12:00",
-        "18:00"
-      ],
-      "preferred_notifications_method": "phone",
-      "user_id": 1,
-      "refill": true
-    },
-    {
       "id": 2,
       "name": "Omeprazole",
       "description": "Big pink pill with OME 10 printed on it",
@@ -51,7 +38,9 @@
       ],
       "preferred_notifications_method": "phone",
       "user_id": 2,
-      "refill": false
+      "refill": false,
+      "status": null,
+      "statusChangedOn": null
     },
     {
       "id": 3,

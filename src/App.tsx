@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import { NavMode } from "./types";
 
 export const NavContext = createContext<NavMode>({
-  pov: '',
+  pov: 'user',
   setPov: () => null,
 });
 

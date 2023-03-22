@@ -21,4 +21,13 @@ export const NavBarOption = styled(Link)`
     text-decoration: none;
     color: black;
     text-align: center;
+
+    &.addMed {
+        background-color: #FFCA3A;
+    }
+
+    &.navToggle {
+        background-color: #F97F77;
+        width: 120px;
+    }
 `
