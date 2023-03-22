@@ -14,6 +14,7 @@ export interface Medication {
   times: string[];
   preferred_notifications_method: string;
   user_id: number;
+  refill: boolean;
 }
 
 export interface NavMode {
