@@ -17,7 +17,8 @@ export interface Medication {
     image: string,
     times: string[],
     preferred_notifications_method: string,
-    user_id: number
+    user_id: number,
+    refill: boolean
 }
 
 const MyMedications = () => {
@@ -45,6 +46,15 @@ const MyMedications = () => {
         fetchMedications()
     }, [])
 
+    const onRefillRequest = (requestedMed: Medication) => {
+        const updatedMeds = medications.map(med => {
+            if (med.id === requestedMed.id) {
+                return requestedMed
+            } else return med
+        })
+        setMedications(updatedMeds)
+    }
+
     const onDelete = (deletedMed: Medication) => {
         const updatedMeds = medications.filter(med => med.id !== deletedMed.id)
         setMedications(updatedMeds)
@@ -52,7 +62,7 @@ const MyMedications = () => {
 
     const medicationsToDisplay = medications
         .filter(med => med.user_id === user?.id)
-        .map(med => <MedicationTile med={med} key={med.id} onDelete={onDelete} />)
+        .map(med => <MedicationTile med={med} key={med.id} onDelete={onDelete} onRefillRequest={onRefillRequest} />)
 
     return (
         <MedicationsContainer>

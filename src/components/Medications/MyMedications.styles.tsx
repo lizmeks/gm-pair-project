@@ -27,7 +27,18 @@ export const DeleteButton = styled.button`
     padding: 5px;
     width: 20%;
     position: relative;
-    top: 45px;
+    top: 30px;
+`
+
+export const RefillButton = styled.button`
+    background-color: dodgerblue;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    width: 35%;
+    position: relative;
+    top: 30px;
+    margin-right: 10px;
 `
 
 export const MedicationImage = styled.img`
