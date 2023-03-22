@@ -65,7 +65,8 @@
       ],
       "preferred_notifications_method": "email",
       "user_id": 1,
-      "refill": true
+      "refill": true,
+      "refillRequestDate": 1679513231838
     },
     {
       "name": "Aspirin",
