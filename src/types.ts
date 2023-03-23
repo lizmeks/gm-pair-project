@@ -15,9 +15,9 @@ export interface Medication {
   preferred_notifications_method: string;
   user_id: number;
   refill: boolean;
-  refillStatus?: "approved" | "denied" | null;
-  refillRequestDate: string | null;
-  refillResponseDate?: string | null;
+  refillStatus: boolean;
+  refillRequestDate: string;
+  refillResponseDate: string;
 }
 
 export interface NavMode {

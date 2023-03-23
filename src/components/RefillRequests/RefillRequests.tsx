@@ -37,23 +37,22 @@ const RefillRequest = () => {
     fetchUsers()
   }, [])
 
+  const fetchMedications = () => {
+    let medData = (fetch('http://localhost:3000/medications'))
+      .then(res => res.json())
+      .then(data => {
+        return data.filter((med:Medication) => med.refill === true)
+      }).then(refillMeds => {
+        console.log('fetchMedications: ', refillMeds)
+        setMedications(refillMeds)
+      })
+    return medData
+  }
   useEffect(() => {
-    const fetchMedications = () => {
-      let medData = (fetch('http://localhost:3000/medications'))
-        .then(res => res.json())
-        .then(data => {
-          return data.filter((med:Medication) => med.refill === true)
-        }).then(refillMeds => {
-          console.log('refillMeds: ', refillMeds)
-          setMedications(refillMeds)
-        })
-      return medData
-    }
     fetchMedications()
   }, [])
 
   const handleApprovalDenial = (refill: Medication, decision: boolean) => {
-    // console.log((e.target as HTMLElement).textContent)
     // console.log(refill)
     const responseDate = new Date(Date.now())
 
@@ -70,10 +69,12 @@ const RefillRequest = () => {
     })
     .then(res => res.json())
     .then(updatedMed => {
-        console.log('doctor response: ', updatedMed)
-        // onRefillRequest(updatedMed)
+        console.log('updatedMed: ', updatedMed)
         // setMedications(updatedMed)
+        
+        fetchMedications()
     })
+    // .then(() => )
   }
 
   return (

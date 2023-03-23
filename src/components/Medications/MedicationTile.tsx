@@ -47,8 +47,22 @@ const MedicationTile = (props: { med: Medication, onDelete: (med: Medication) =>
         <ul>
           {timesToDisplay}
         </ul>
-        <RefillButton disabled={med.refill} onClick={() => handleRefillRequest(med)}>Request Refill</RefillButton>
-        <DeleteButton onClick={() => handleDelete(med)}>Delete</DeleteButton>
+        <p>
+          <span><strong>Refill Status:</strong></span>
+          {
+            !med.refillRequestDate.length && !med.refill
+              ? 'not requested yet'
+              : !med.refillResponseDate.length 
+                  ? `Pending...`
+                  : med.refillStatus 
+                      ? `Approved on ${med.refillResponseDate}`
+                      : `Denied on ${med.refillResponseDate}`
+          }
+        </p>
+        <div>
+          <RefillButton disabled={med.refill} onClick={() => handleRefillRequest(med)}>Request Refill</RefillButton>
+          <DeleteButton onClick={() => handleDelete(med)}>Delete</DeleteButton>
+        </div>
       </MedicationInfo>
       <MedicationImage src={med.image || pillImage} alt={med.description} />
     </MedicationTileContainer>

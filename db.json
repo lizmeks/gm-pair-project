@@ -39,9 +39,9 @@
       "preferred_notifications_method": "phone",
       "user_id": 2,
       "refill": false,
-      "refillStatus": null,
-      "refillRequestDate": null,
-      "refillResponseDate": null
+      "refillStatus": false,
+      "refillRequestDate": "",
+      "refillResponseDate": ""
     },
     {
       "id": 3,
@@ -54,9 +54,9 @@
       "preferred_notifications_method": "email",
       "user_id": 2,
       "refill": false,
-      "refillStatus": null,
-      "refillRequestDate": null,
-      "refillResponseDate": null
+      "refillStatus": false,
+      "refillRequestDate": "",
+      "refillResponseDate": ""
     },
     {
       "id": 4,
@@ -70,9 +70,9 @@
       "preferred_notifications_method": "email",
       "user_id": 1,
       "refill": false,
-      "refillStatus": true,
-      "refillRequestDate": "3/22/2023, 4:58:28 PM",
-      "refillResponseDate": "3/22/2023, 5:16:34 PM"
+      "refillStatus": false,
+      "refillRequestDate": "",
+      "refillResponseDate": ""
     },
     {
       "name": "Aspirin",
@@ -86,10 +86,10 @@
       "notification": "email",
       "user_id": 1,
       "id": 5,
-      "refill": false,
-      "refillStatus": true,
-      "refillRequestDate": "3/22/2023, 3:38:39 PM",
-      "refillResponseDate": "3/22/2023, 4:53:48 PM"
+      "refill": true,
+      "refillStatus": false,
+      "refillRequestDate": "3/23/2023, 2:08:22 PM",
+      "refillResponseDate": ""
     },
     {
       "name": "Loratadine",
@@ -99,12 +99,12 @@
         "8:00"
       ],
       "notification": "email",
-      "user_id": 3,
+      "user_id": 1,
       "id": 6,
       "refill": false,
-      "refillStatus": null,
-      "refillRequestDate": null,
-      "refillResponseDate": null
+      "refillStatus": true,
+      "refillRequestDate": "3/23/2023, 2:08:07 PM",
+      "refillResponseDate": "3/23/2023, 2:08:12 PM"
     },
     {
       "name": "B-complex",
@@ -115,12 +115,12 @@
         "21:00"
       ],
       "notification": "phone",
-      "user_id": 3,
+      "user_id": 1,
       "id": 7,
       "refill": false,
-      "refillStatus": null,
-      "refillRequestDate": null,
-      "refillResponseDate": null
+      "refillStatus": false,
+      "refillRequestDate": "3/23/2023, 2:08:05 PM",
+      "refillResponseDate": "3/23/2023, 2:08:13 PM"
     }
   ],
   "doctors": [

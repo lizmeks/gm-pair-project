@@ -18,6 +18,18 @@ export const MedicationTileContainer = styled.div`
 export const MedicationInfo = styled.div`
     width: 50%;
     padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: 0.25rem;
+
+    h3, h4, p, ul {
+        margin: 0;
+
+        span {
+            margin-right: 0.5rem;
+        }
+    }
 `
 
 export const DeleteButton = styled.button`
@@ -25,9 +37,9 @@ export const DeleteButton = styled.button`
     border-radius: 5px;
     border: none;
     padding: 5px;
-    width: 20%;
+    width: 30%;
     position: relative;
-    top: 30px;
+    /* top: 30px; */
 `
 
 export const RefillButton = styled.button`
@@ -35,9 +47,9 @@ export const RefillButton = styled.button`
     border-radius: 5px;
     border: none;
     padding: 5px;
-    width: 35%;
+    width: 30%;
     position: relative;
-    top: 30px;
+    /* top: 30px; */
     margin-right: 10px;
 `
 

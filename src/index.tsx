@@ -12,15 +12,16 @@ const router = createBrowserRouter([{
   element: <App />,
   children: [
     {
-      path: 'add',
+      path: '/add',
       element: <Form />
     },
     {
-      path: 'medications',
+      index: true,
+      path: '/medications',
       element: <MyMedications />
     },
     {
-      path: 'requests',
+      path: '/requests',
       element: <RefillRequest />
     }
   ]

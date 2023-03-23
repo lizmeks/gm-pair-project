@@ -30,7 +30,7 @@ const NavBar = (props: NavMode) => {
           to={pov === 'user' ? '/requests' : '/medications'}
           className='navToggle'
           onClick={handleNavToggle}>
-            {pov} mode
+            enter {pov === 'user' ? 'doctor' : 'user'} mode
         </NavBarOption>
       </LeftRightContainers>
     </Navigation>
