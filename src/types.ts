@@ -12,7 +12,7 @@ export interface Medication {
   description: string;
   image: string;
   times: string[];
-  preferred_notifications_method: string;
+  notification: string;
   user_id: number;
   refill: boolean;
   refillStatus: boolean;

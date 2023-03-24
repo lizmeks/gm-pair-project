@@ -21,8 +21,7 @@ const MedicationTile = (props: { med: Medication, onDelete: (med: Medication) =>
         })
       })
       .then(res => res.json())
-      .then(updatedMed => {
-          // console.log('updatedMed: ', updatedMed)
+        .then(updatedMed => {
           onRefillRequest(updatedMed)
       })
     }
@@ -43,16 +42,16 @@ const MedicationTile = (props: { med: Medication, onDelete: (med: Medication) =>
       <MedicationInfo>
         <h3>{med.name}</h3>
         <h4>{med.description}</h4>
-        <p>Notifications via {med.preferred_notifications_method === "email" ? "📧" : "📱"} at:</p>
+        <p>Notifications via {med.notification === "email" ? "📧" : "📱"} at:</p>
         <ul>
           {timesToDisplay}
         </ul>
         <p>
           <span><strong>Refill Status:</strong></span>
           {
-            !med.refillRequestDate.length && !med.refill
+            !med.refillRequestDate?.length && !med.refill
               ? 'not requested yet'
-              : !med.refillResponseDate.length 
+              : med.refill
                   ? `Pending...`
                   : med.refillStatus 
                       ? `Approved on ${med.refillResponseDate}`

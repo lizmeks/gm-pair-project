@@ -15,6 +15,7 @@ import {
 } from './Form.styles';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 const validationSchema = Yup.object({
   name: Yup.string().required().min(3),
@@ -38,18 +39,21 @@ interface Medication {
 
 const USER_ID = 1;
 
-const medicationSubmitHandler = (data: Medication) => {
-  const newMedication = {
-    ...data,
-    user_id: USER_ID,
-    id: uuidv4()
-  };
-  axios.post('http://localhost:3000/medications', newMedication)
-    .then(res => console.log(res.data))
-    .catch(error => console.error(error.message));
-};
-
 const Form = () => {
+
+  let navigate = useNavigate()
+
+  const medicationSubmitHandler = (data: Medication) => {
+    const newMedication = {
+      ...data,
+      user_id: USER_ID,
+      id: uuidv4()
+    };
+    axios.post('http://localhost:3000/medications', newMedication)
+      .then(res => console.log(res.data))
+      .then(() => navigate('/medications'))
+      .catch(error => console.error(error.message));
+  };
 
   return (
     <Root>
