@@ -36,7 +36,7 @@
         "12:00",
         "18:00"
       ],
-      "preferred_notifications_method": "phone",
+      "notification": "phone",
       "user_id": 2,
       "refill": false,
       "refillStatus": false,
@@ -51,7 +51,7 @@
       "times": [
         "9:00"
       ],
-      "preferred_notifications_method": "email",
+      "notification": "email",
       "user_id": 2,
       "refill": false,
       "refillStatus": false,
@@ -67,7 +67,7 @@
         "10:00",
         "22:00"
       ],
-      "preferred_notifications_method": "email",
+      "notification": "email",
       "user_id": 1,
       "refill": false,
       "refillStatus": false,
@@ -86,9 +86,9 @@
       "notification": "email",
       "user_id": 1,
       "id": 5,
-      "refill": true,
+      "refill": false,
       "refillStatus": false,
-      "refillRequestDate": "3/23/2023, 2:08:22 PM",
+      "refillRequestDate": "",
       "refillResponseDate": ""
     },
     {
@@ -102,9 +102,9 @@
       "user_id": 1,
       "id": 6,
       "refill": false,
-      "refillStatus": true,
-      "refillRequestDate": "3/23/2023, 2:08:07 PM",
-      "refillResponseDate": "3/23/2023, 2:08:12 PM"
+      "refillStatus": false,
+      "refillRequestDate": "",
+      "refillResponseDate": ""
     },
     {
       "name": "B-complex",
@@ -119,8 +119,23 @@
       "id": 7,
       "refill": false,
       "refillStatus": false,
-      "refillRequestDate": "3/23/2023, 2:08:05 PM",
-      "refillResponseDate": "3/23/2023, 2:08:13 PM"
+      "refillRequestDate": "",
+      "refillResponseDate": ""
+    },
+    {
+      "name": "Paxlovid",
+      "description": "Flat, oval, coated white tablet",
+      "image": "",
+      "times": [
+        "16:05"
+      ],
+      "notification": "phone",
+      "user_id": 1,
+      "id": "1f491c51-b5ff-485e-9c73-3731cc26af8b",
+      "refill": false,
+      "refillRequestDate": "3/24/2023, 10:37:07 AM",
+      "refillStatus": true,
+      "refillResponseDate": "3/24/2023, 10:37:17 AM"
     }
   ],
   "doctors": [

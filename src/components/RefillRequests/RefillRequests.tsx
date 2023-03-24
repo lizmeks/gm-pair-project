@@ -2,24 +2,6 @@ import { ButtonContainer, InfoTitle, RefillListItem, Root, TextContainer } from 
 import { useEffect, useState } from "react"
 import { Medication, User } from "../../types"
 
-const testData = [
-  {
-    medName: 'Fake Pill Ex',
-    patient: 'Lorem Ipsum',
-    date: new Date()
-  },
-  {
-    medName: 'Fake Pill Ex',
-    patient: 'Lorem Ipsum',
-    date: new Date()
-  },
-  {
-    medName: 'Fake Pill Ex',
-    patient: 'Lorem Ipsum',
-    date: new Date()
-  }
-]
-
 const RefillRequest = () => {
   const [user, setUser] = useState<User | null>(null)
   const [medications, setMedications] = useState<Medication[]>([])
@@ -43,7 +25,6 @@ const RefillRequest = () => {
       .then(data => {
         return data.filter((med:Medication) => med.refill === true)
       }).then(refillMeds => {
-        console.log('fetchMedications: ', refillMeds)
         setMedications(refillMeds)
       })
     return medData
@@ -53,7 +34,7 @@ const RefillRequest = () => {
   }, [])
 
   const handleApprovalDenial = (refill: Medication, decision: boolean) => {
-    // console.log(refill)
+
     const responseDate = new Date(Date.now())
 
     fetch(`http://localhost:3000/medications/${refill.id}`, {
@@ -69,12 +50,10 @@ const RefillRequest = () => {
     })
     .then(res => res.json())
     .then(updatedMed => {
-        console.log('updatedMed: ', updatedMed)
-        // setMedications(updatedMed)
+      console.log('updatedMed: ', updatedMed)
         
         fetchMedications()
     })
-    // .then(() => )
   }
 
   return (

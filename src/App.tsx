@@ -19,7 +19,6 @@ export const UserContext = createContext({
   setUser: (changedUser: User) => {}
 });
 
-// export const MedicationContext = createContext<Medication>({
 export const MedicationContext = createContext({
   medications: [{
     id: 0,
@@ -27,7 +26,7 @@ export const MedicationContext = createContext({
     description: '',
     image: '',
     times: [''],
-    preferred_notifications_method: '',
+    notification: '',
     user_id: 0,
     refill: false,
     refillStatus: false,
@@ -62,7 +61,7 @@ const App = () => {
     description: '',
     image: '',
     times: [],
-    preferred_notifications_method: '',
+    notification: '',
     user_id: 0,
     refill: false,
     refillStatus: false,

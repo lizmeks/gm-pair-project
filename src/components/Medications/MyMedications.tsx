@@ -5,8 +5,6 @@ import MedicationTile from "./MedicationTile"
 import { MedicationsContainer } from "./MyMedications.styles"
 
 const MyMedications = () => {
-  // const [user, setUser] = useState<User | null>(null)
-  // const [medications, setMedications] = useState<Medication[]>([])
   const { user, setUser } = useContext(UserContext)
   const { medications, setMedications } = useContext(MedicationContext)
 
@@ -16,7 +14,6 @@ const MyMedications = () => {
       .then(data => {
         return data.filter((med:Medication) => med.user_id === user.id)
       }).then(refillMeds => {
-        console.log('fetch UserMedications: ', refillMeds)
         setMedications(refillMeds)
       })
     return medData
